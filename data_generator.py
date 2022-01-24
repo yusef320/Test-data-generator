@@ -5,7 +5,7 @@ import string
 # Crea DEPARTAMENTO (cod_dep: varchar(5), nombre: varchar(50), telf: char(12))
 
 code_departamento = [random.randint(11111,99999) for i in range(15)]
-dep_nom = [f"Departamento {i}" for i in range (1,len(code_departamento))]
+dep_nom = [f"Departamento {i}" for i in range (1,len(code_departamento)+1)]
 dep_telf = [random.randint(900000000,999999999) for i in range(len(dep_nom))]
 
 df_dep = pd.DataFrame(data=zip(code_departamento, dep_nom, dep_telf),
