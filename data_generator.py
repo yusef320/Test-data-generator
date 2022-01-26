@@ -49,8 +49,14 @@ df_emp.to_csv("empleado.csv", sep=";", index=False)
 df_alg = pd.DataFrame({"nombre":["cacahuetes", "nueces"], "reacciones":["asfixia","asfixia"],"tratamiento":["adrenalina","adrenalina"]})
 df_alg.to_csv("alergias.csv", sep=";", index=False)
 
-df_pos = pd.DataFrame(data=[(random.choice(dni), random.choice(["cacahuetes", "nueces"])) for i in range(150)]
-                    , columns=["dni", "nombre"])
+data_pos = []
+for i in range(150):
+    dtem = random.choice(dni)
+    atem =  random.choice(["cacahuetes","nueces"])
+    if (dtem,atem) not in data_pos:
+        data_pos.append((dtem, atem))
+
+df_pos = pd.DataFrame(data=data_pos, columns=["dni", "nombre"])
 df_pos.to_csv("poseen.csv", sep=";", index=False)
 
 
@@ -189,12 +195,13 @@ df_prueba.to_csv("prueba.csv",sep=";",index=False)
 #creamos ANALISIS (ref_cita:varchar(9), dni: varchar(9), ref_prueba: varchar(9), resultado:varchar(20))
 
 f1,f2,f3,f4=[],[],[],[]
-
+l1=list(zip(refcit, dnicit))
 for i in range(200):
-    c1, c2 = random.choice(list(zip(dnicit, refcit)))
+    c1, c2 = random.choice(l1)
+    l1.remove((c1,c2))
     f1.append(c1)
-    f2.append(c2)
-    f3.append(123654982)
+    f3.append(c2)
+    f2.append(123654982)
     f4.append(random.choice(["Positivo", "Negativo"]))
 
 df_analisis = pd.DataFrame(data=zip(f1,f3,f2,f4), columns=["ref_cita","dni","ref_prueba","resultado"])
