@@ -1,6 +1,6 @@
 # Geneador de datos de prueba.
-El siguiente repositorio es un ejemplo de programa python que genera datos de prueba generados aleatoriamente para todas las relaciones de una base de datos.
-La base de datos para la que genera datos de prueba es la base de datos del gabinete médico de una empresa. Para ello el programa genera un archivo CSV para cada relacióm para después ser subidos a la base de datos mediante el SGBD. 
+El siguiente repositorio es un ejemplo de programa python que genera datos de prueba aleatoriamente para todas las relaciones de una base de datos cumpliendo las restricciones deintegridad.
+La base de datos para la que genera la información de prueba es la base de datos del gabinete médico de una empresa. Para ello el programa genera un archivo CSV para cada relacióm para después ser subidos a la base de datos mediante el SGBD. 
 
 El esquela lógico de la base de datos es el siguiente:
 
